@@ -7,8 +7,7 @@ myApp.directive("myMaps", [ function(){
 		link: function(scope, element, attrs){
 			
 			var myLatLng = new google.maps.LatLng(45.2843691, -75.732333);
-			//var myLatLng2 = new google.maps.LatLng(56.2843691, -70.732333);
-			var myMarkers = [[45, -75], [56, -70]];
+			var myMarkers = [[45, -75], [56, -70], [58, -69]];
 			var mapOptions = {
 				center: myLatLng,
 				zoom: 5,
@@ -19,21 +18,19 @@ myApp.directive("myMaps", [ function(){
 			var marker, i;
 			
 			for(var i =0; i < myMarkers.length; i++){
-				console.log('my markers are seen'+myMarkers[i][0]);
 				marker = new google.maps.Marker({
 					position: new google.maps.LatLng(myMarkers[i][0], myMarkers[i][1]), 
 					map: map, 
 					title: "hellow world!"+i
 				});
+				google.maps.event.addListener(marker, 'click', (function(marker, i){
+					return function(){
+						infoWindow.setContent("try");
+						infoWindow.open(map, marker);
+					}
+				})(marker, i));
 				marker.setMap(map);
 			}
-			var marker = new google.maps.Marker({
-				position: myLatLng, 
-				map: map, 
-				title: "hello world!"
-			});
-
-			marker.setMap(map);
 		}
 	};
 }] );
