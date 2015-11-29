@@ -1,0 +1,100 @@
+{
+    "seasons": {
+        "fall": [
+            {
+                "name": "Parks",
+                "src": "parks.jpg"
+            },
+            {
+                "name": "",
+                "src": "loacalParks.jpg"
+            },
+            {
+                "name": "Local Parks",
+                "src": "loacalParks.jpg"
+            },
+            {
+                "name": "Local Parks",
+                "src": "loacalParks.jpg"
+            }
+        ],
+        "winter": [
+            {
+                "name": "Outdoor Rinks",
+                "src": "outdoorRinks.jpg"
+            },
+            {
+                "name": "Sledding Hill",
+                "src": "sleddingHill.jpg"
+            }
+        ],
+        "spring": [
+            {
+                "name": "Parks",
+                "src": "parks.jpg"
+            },
+        ],
+        "summer": [
+            {
+                "name": "Parks",
+                "src": "parks.jpg"
+            },
+            {
+                "name": "Beaches",
+                "src": "beaches.jpg"
+            },
+            {
+                "name": "Outdoor Pools",
+                "src": "outdoorPools.jpg"
+            },
+            {
+                "name": "Splash Pads",
+                "src": "splashPads.jpg"
+            },
+            {
+                "name": "Soccer Fields",
+                "src": "soccer.jpg"
+            },
+            {
+                "name": "Basketball Courts",
+                "src": "basketball.jpg"
+            },
+            {
+                "name": "Tennis Courts",
+                "src": "tennis.jpg"
+            },
+            {
+                "name": "Skating Parks",
+                "src": "skating.jpg"
+            },
+            {
+                "name": "Volly Ball Courts",
+                "src": "vollyBall.jpg"
+            },
+            {
+                "name": "Baseball Diamonds",
+                "src": "ballDiamonds.jpg"
+            },
+            {
+                "name": "Lawn Bowling Areas",
+                "src": "lawnbowling.jpg"
+            }
+        ]
+    }
+}
+
+
+
+http: //52.69.238.45:3000/read-lawn-bowling
+    http: //52.69.238.45:3000/read-beaches
+    http: //52.69.238.45:3000/read-splash-pads
+    http: //52.69.238.45:3000/read-outdoor-pools
+    http: //52.69.238.45:3000/read-parks
+    http: //52.69.238.45:3000/read-tennis-courts
+    http: //52.69.238.45:3000/read-outdoor-rinks
+    http: //52.69.238.45:3000/read-volleyball-courts
+    http: //52.69.238.45:3000/read-ball-diamonds
+    http: //52.69.238.45:3000/read-sledding-hills
+    http: //52.69.238.45:3000/read-basketball-courts
+    http: //52.69.238.45:3000/read-sports-fields
+    http: //52.69.238.45:3000/read-skateboard-parks

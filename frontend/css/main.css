@@ -1,0 +1,195 @@
+/* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-bottom: 20px;
+}
+
+.dropdown {
+    cursor: pointer;
+}
+
+.img-home-portfolio,
+.img-customer,
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.tab-pane {
+    margin-top: 15px;
+}
+
+#current-weather {}
+/* Page Sections */
+
+.section,
+.section-colored {
+    padding: 50px 0;
+}
+
+.section-colored {
+    background-color: #e1e1e1;
+    /* change this to change the background color of a colored section */
+}
+
+.sidebar {
+    margin-top: 40px;
+}
+
+.sidebar ul {
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #cccccc;
+}
+/* Half Page Height Carousel Customization */
+
+.carousel {
+    height: 50%;
+}
+
+.item,
+.active,
+.carousel-inner {
+    height: 100%;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+/* Social Icons Styles */
+
+.list-social-icons {
+    margin-bottom: 45px;
+}
+
+.tooltip-social a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.facebook-link a:hover {
+    color: #3b5998;
+}
+
+.linkedin-link a:hover {
+    color: #007fb1;
+}
+
+.twitter-link a:hover {
+    color: #39a9e0;
+}
+
+.google-plus-link a:hover {
+    color: #d14836;
+}
+/* Service Page Styles */
+
+.service-icon {
+    font-size: 50px;
+}
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 8em;
+}
+/* Pricing Page Styles */
+
+.price {
+    font-size: 4em;
+}
+
+.price-cents {
+    vertical-align: super;
+    font-size: 50%;
+}
+
+.price-month {
+    font-size: 35%;
+    font-style: italic;
+}
+/* Colour Styles */
+
+.hot-weather {
+    background: rgba(255, 59, 15, 1);
+    background: -moz-linear-gradient(top, rgba(255, 59, 15, 1) 0%, rgba(255, 100, 10, 1) 51%, rgba(242, 127, 27, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 59, 15, 1)), color-stop(51%, rgba(255, 100, 10, 1)), color-stop(100%, rgba(242, 127, 27, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 59, 15, 1) 0%, rgba(255, 100, 10, 1) 51%, rgba(242, 127, 27, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 59, 15, 1) 0%, rgba(255, 100, 10, 1) 51%, rgba(242, 127, 27, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 59, 15, 1) 0%, rgba(255, 100, 10, 1) 51%, rgba(242, 127, 27, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 59, 15, 1) 0%, rgba(255, 100, 10, 1) 51%, rgba(242, 127, 27, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ff3b0f', endColorstr='#f27f1b', GradientType=0);
+}
+
+.cold-weather {
+    background: rgba(85, 169, 185, 1);
+    background: -moz-linear-gradient(top, rgba(85, 169, 185, 1) 0%, rgba(147, 228, 241, 1) 51%, rgba(201, 245, 248, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(85, 169, 185, 1)), color-stop(51%, rgba(147, 228, 241, 1)), color-stop(100%, rgba(201, 245, 248, 1)));
+    background: -webkit-linear-gradient(top, rgba(85, 169, 185, 1) 0%, rgba(147, 228, 241, 1) 51%, rgba(201, 245, 248, 1) 100%);
+    background: -o-linear-gradient(top, rgba(85, 169, 185, 1) 0%, rgba(147, 228, 241, 1) 51%, rgba(201, 245, 248, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(85, 169, 185, 1) 0%, rgba(147, 228, 241, 1) 51%, rgba(201, 245, 248, 1) 100%);
+    background: linear-gradient(to bottom, rgba(85, 169, 185, 1) 0%, rgba(147, 228, 241, 1) 51%, rgba(201, 245, 248, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#55a9b9', endColorstr='#c9f5f8', GradientType=0);
+}
+/* Home PAge */
+.activities p {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 1px 1px 5px black;
+}
+
+.cover {
+    box-shadow: 0 1px 5px black;
+    padding-bottom: 0;
+}
+
+.cover h1 {
+    color: transparent;
+}
+
+.cover h2 {
+    color: white;
+    text-shadow: 1px 1px 4px black;
+}
+
+.cover p {
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    margin: 0;
+}
+
+.cover-img {
+    background: url(../img/jpg/ottawaCover.jpg) no-repeat center center;
+    background-size: cover;
+}
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+/* Responsive Styles */
+
+@media (max-width: 767px) {
+    .carousel {
+        height: 70%;
+        /* increases the carousel height so it looks good on phones */
+    }
+}
