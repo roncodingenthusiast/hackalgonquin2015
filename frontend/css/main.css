@@ -145,6 +145,14 @@ body {
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#55a9b9', endColorstr='#c9f5f8', GradientType=0);
 }
 /* Home PAge */
+.activities p {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 1px 1px 5px black;
+}
 
 .cover {
     box-shadow: 0 1px 5px black;
