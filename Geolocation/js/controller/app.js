@@ -1,5 +1,4 @@
 var myApp = angular.module('myApp', []);
-
 myApp.directive("myMaps", function(){
 	return{
 		restrict:'E',
