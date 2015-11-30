@@ -52,6 +52,16 @@ body {
     padding: 5px;
     border: 1px solid #cccccc;
 }
+
+.miniLogo {
+    padding: 0;
+}
+
+.miniLogo img {
+    width: 110px;
+    height: 50px;
+    padding: 0.5rem 0;
+}
 /* Half Page Height Carousel Customization */
 
 .carousel {
@@ -145,6 +155,7 @@ body {
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#55a9b9', endColorstr='#c9f5f8', GradientType=0);
 }
 /* Home PAge */
+
 .activities p {
     position: absolute;
     top: 0;
