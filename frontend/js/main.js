@@ -26,39 +26,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "partials/about.html",
             controller: "PageCtrl"
         })
-<<<<<<< HEAD
-        
         .when("/settings", {
             templateUrl: "partials/settings.html",
             controller: "PageCtrl"
         })
-=======
-        .when("/faq", {
-            templateUrl: "partials/faq.html",
-            controller: "PageCtrl"
-        })
-        .when("/pricing", {
-            templateUrl: "partials/pricing.html",
-            controller: "PageCtrl"
-        })
-        .when("/services", {
-            templateUrl: "partials/services.html",
-            controller: "PageCtrl"
-        })
-        .when("/contact", {
-            templateUrl: "partials/contact.html",
-            controller: "PageCtrl"
-        })
-        // Blog
-        .when("/blog", {
-            templateUrl: "partials/blog.html",
-            controller: "BlogCtrl"
-        })
-        .when("/blog/post", {
-            templateUrl: "partials/blog_item.html",
-            controller: "BlogCtrl"
-        })
->>>>>>> master
         // else 404
         .otherwise("/404", {
             templateUrl: "partials/404.html",
@@ -69,31 +40,13 @@ app.config(['$routeProvider', function ($routeProvider) {
 /**
  * Controls the Blog
  */
-<<<<<<< HEAD
 app.controller('navCtrl', function (fromServer /* $scope, $location, $http */ ) {
         var cityTemp = fromServer.getjSon();
         //console.log(fromServer.getjSon());
     })
     .controller('PageCtrl', function ($document, fromServer, generalFactory) {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                //$scope.$apply(function(){
-                //$scope.position = position;
-                console.log(position);
-                console.log(position.coords.latitude);
-                console.log(position.coords.longitude);
-            });
-        }
-
-        console.log("Page Controller reporting for duty.");
-        // https://api.forecast.io/forecast/ba12221e9343fd78603b552feb4bcac1/45.3507329,-75.76946629999999
         generalFactory.getCurrentSeason();
         fromServer.getjSon();
-
-        // Activates the Carousel
-        $('.carousel').carousel({
-            interval: 5000
-        });
 
         // Activates Tooltips for Social Links
         $('.tooltip-social').tooltip({
@@ -104,24 +57,46 @@ app.controller('navCtrl', function (fromServer /* $scope, $location, $http */ ) 
         var activities = $scope,
             season = generalFactory.getCurrentSeason(),
             promise = fromServer.getActivities();
-    
+
         promise.then(function (payload) {
-                switch (season) {
-                case "Spring":
-                    $scope.activities = payload.data[season];
-                    break;
-                case "Summer":
-                    $scope.activities = payload.data[season];
-                    break;
-                case "Fall":
-                    $scope.activities = payload.data[season];
-                    break;
-                case "Winter":
-                    $scope.activities = payload.data[season];
-                    break;
-                }
+            switch (season) {
+            case "Spring":
+                $scope.activities = payload.data[season];
+                break;
+            case "Summer":
+                $scope.activities = payload.data[season];
+                break;
+            case "Fall":
+                $scope.activities = payload.data[season];
+                break;
+            case "Winter":
+                $scope.activities = payload.data[season];
+                break;
+            }
+        });
+    })
+    .controller('PhoneListCtrl', ['$rootScope', '$http', function ($scope, $http, $rootScope) {
+        /*var jsonFile = 'js/data.json';
+        $http.get(jsonFile)
+        .then(function(res){
+            $scope.stuff = res.data;
+            console.log($scope.stuff.features[0].geometry.coordinates[0]);
+        });*/
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                $scope.$apply(function () {
+                    $scope.position = position;
+                });
+                console.log(position);
+                $scope.latitude = position.coords.latitude;
+                $scope.longititude = position.coords.longititude;
+                console.log(position.coords.latitude);
+                console.log(position.coords.longititude);
             });
-    });
+
+        }
+
+}]);
 
 app.directive('activities', function () {
     return {
@@ -133,13 +108,11 @@ app.directive('activities', function () {
 app.factory('fromServer', function ($http) {
         var service = {};
 
-        service.getCurrentWeather = function (APIKEY, LATITUDE, LONGITUDE) {
+        service.getCurrentWeather = function (coor) {
             var promise = $http.get('https://api.forecast.io/forecast/ba12221e9343fd78603b552feb4bcac1/' + LATITUDE + ',' + LONGITUDE + '?units=ca');
 
             promise.then(function (payload) {
                 console.log(payload.hourly.data.temperature);
-                //$scope.items = payload.data[storageName];
-                //service.addItem(storageName, payload, 'fromServer');
             });
         };
 
@@ -154,9 +127,6 @@ app.factory('fromServer', function ($http) {
 
         service.getActivities = function (season) {
             return $http.get('js/weatherActivities.json');
-
-            //console.log(payload.data.currently.apparentTemperature);
-            //return payload.data.currently.temperature;
         };
         return service;
     })
@@ -203,64 +173,3 @@ app.factory('fromServer', function ($http) {
         };
         return service;
     });
-=======
-app.controller('BlogCtrl', function ( /* $scope, $location, $http */ ) {
-    console.log("Blog Controller reporting for duty.");
-});
-
-/**
- * Controls all other Pages
- */
-
-app.controller('PageCtrl', function ($document, fromServer/* $scope, $location, $http */ ) {
-    console.log("Page Controller reporting for duty.");
-    console.log(":)");
-    fromServer.getCurrentWeather('ba12221e9343fd78603b552feb4bcac1', '45.348391', '-75.757045?units=ca');
-    
-    //addEventListener('load', loadIt, false);
-    /*
-    (function loadIt() {
-        var clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-            clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
-            navHeightInPercentage = 55/clientHeight,
-            
-            fromTop = (clientHeight - navHeightInPercentage)/100,
-            //fromTop = clientHeight - 55;
-            el = document.getElementById("navIgation");
-        
-        console.log(clientHeight);
-        
-        console.log(fromTop);
-        
-        el.style.height = navHeightInPercentage + "%";
-        el.style.top = fromTop + "%";
-        // do something with el
-    })()
-    */
-    // Activates the Carousel
-    $('.carousel').carousel({
-        interval: 5000
-    });
-
-    // Activates Tooltips for Social Links
-    $('.tooltip-social').tooltip({
-        selector: "a[data-toggle=tooltip]"
-    })
-});
-
-app.factory('fromServer', function ($http) {
-    var service = {};
-
-    service.getCurrentWeather = function (APIKEY, LATITUDE, LONGITUDE) {
-        var promise = $http.get('https://api.forecast.io/forecast/' + APIKEY + '/' + LATITUDE + ',' + LONGITUDE);
-        
-        promise.then(function (payload) {
-            console.log(payload.hourly.data.temperature)
-                //$scope.items = payload.data[storageName];
-                //service.addItem(storageName, payload, 'fromServer');
-        });
-    }
-
-    return service;
-})
->>>>>>> master

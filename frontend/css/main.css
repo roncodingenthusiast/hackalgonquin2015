@@ -13,10 +13,6 @@ body {
 }
 
 body {
-<<<<<<< HEAD
-=======
-    padding-top: 50px;
->>>>>>> master
     padding-bottom: 20px;
 }
 
@@ -34,13 +30,7 @@ body {
     margin-top: 15px;
 }
 
-<<<<<<< HEAD
 #current-weather {}
-=======
-#current-weather {
-    
-}
->>>>>>> master
 /* Page Sections */
 
 .section,
@@ -62,7 +52,6 @@ body {
     padding: 5px;
     border: 1px solid #cccccc;
 }
-<<<<<<< HEAD
 
 .miniLogo {
     padding: 0;
@@ -73,8 +62,6 @@ body {
     height: 50px;
     padding: 0.5rem 0;
 }
-=======
->>>>>>> master
 /* Half Page Height Carousel Customization */
 
 .carousel {
@@ -92,6 +79,12 @@ body {
     height: 100%;
     background-position: center;
     background-size: cover;
+}
+.col-lg-4,
+.col-md-4,
+.col-sm-6,
+.col-xs-6 {
+    
 }
 /* Social Icons Styles */
 
@@ -167,7 +160,6 @@ body {
     background: linear-gradient(to bottom, rgba(85, 169, 185, 1) 0%, rgba(147, 228, 241, 1) 51%, rgba(201, 245, 248, 1) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#55a9b9', endColorstr='#c9f5f8', GradientType=0);
 }
-<<<<<<< HEAD
 /* Home PAge */
 
 .activities p {
@@ -205,8 +197,6 @@ body {
     background: url(../img/jpg/ottawaCover.jpg) no-repeat center center;
     background-size: cover;
 }
-=======
->>>>>>> master
 /* Footer Styles */
 
 footer {

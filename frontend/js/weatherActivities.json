@@ -38,7 +38,7 @@
             {
                 "name": "Parks",
                 "src": "parks.jpg"
-            },
+            },.
             {
                 "name": "Beaches",
                 "src": "beaches.jpg"
@@ -54,19 +54,19 @@
             {
                 "name": "Soccer Fields",
                 "src": "soccer.jpg"
-            },
+            },.
             {
                 "name": "Basketball Courts",
                 "src": "basketball.jpg"
-            },
+            },.
             {
                 "name": "Tennis Courts",
                 "src": "tennis.jpg"
-            },
+            },.
             {
                 "name": "Skating Parks",
                 "src": "skating.jpg"
-            },
+            },.
             {
                 "name": "Volly Ball Courts",
                 "src": "vollyBall.jpg"
@@ -74,7 +74,7 @@
             {
                 "name": "Baseball Diamonds",
                 "src": "ballDiamonds.jpg"
-            },
+            },.
             {
                 "name": "Lawn Bowling Areas",
                 "src": "lawnbowling.jpg"
