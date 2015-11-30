@@ -26,30 +26,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "partials/about.html",
             controller: "PageCtrl"
         })
-        .when("/faq", {
-            templateUrl: "partials/faq.html",
+        
+        .when("/settings", {
+            templateUrl: "partials/settings.html",
             controller: "PageCtrl"
-        })
-        .when("/pricing", {
-            templateUrl: "partials/pricing.html",
-            controller: "PageCtrl"
-        })
-        .when("/services", {
-            templateUrl: "partials/services.html",
-            controller: "PageCtrl"
-        })
-        .when("/contact", {
-            templateUrl: "partials/contact.html",
-            controller: "PageCtrl"
-        })
-        // Blog
-        .when("/blog", {
-            templateUrl: "partials/blog.html",
-            controller: "BlogCtrl"
-        })
-        .when("/blog/post", {
-            templateUrl: "partials/blog_item.html",
-            controller: "BlogCtrl"
         })
         // else 404
         .otherwise("/404", {
@@ -62,45 +42,63 @@ app.config(['$routeProvider', function ($routeProvider) {
  * Controls the Blog
  */
 app.controller('navCtrl', function (fromServer /* $scope, $location, $http */ ) {
-    var cityTemp = fromServer.getjSon();
-    //console.log(fromServer.getjSon());
-});
+        var cityTemp = fromServer.getjSon();
+        //console.log(fromServer.getjSon());
+    })
+    .controller('PageCtrl', function ($document, fromServer, generalFactory) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                //$scope.$apply(function(){
+                //$scope.position = position;
+                console.log(position);
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
+            });
+        }
 
-/**
- * Controls all other Pages
- */
+        console.log("Page Controller reporting for duty.");
+        // https://api.forecast.io/forecast/ba12221e9343fd78603b552feb4bcac1/45.3507329,-75.76946629999999
+        generalFactory.getCurrentSeason();
+        fromServer.getjSon();
 
-app.controller('PageCtrl', function ($document, fromServer, generalFactory) {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            //$scope.$apply(function(){
-            //$scope.position = position;
-            console.log(position);
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
+        // Activates the Carousel
+        $('.carousel').carousel({
+            interval: 5000
         });
-    }
 
-    console.log("Page Controller reporting for duty.");
-    // https://api.forecast.io/forecast/ba12221e9343fd78603b552feb4bcac1/45.3507329,-75.76946629999999
-    generalFactory.getCurrentSeason();
-    fromServer.getjSon();
-
-    // Activates the Carousel
-    $('.carousel').carousel({
-        interval: 5000
-    });
-
-    // Activates Tooltips for Social Links
-    $('.tooltip-social').tooltip({
-        selector: "a[data-toggle=tooltip]"
-    });
-})
-.controller('activitiesCtrl', function ($scope, fromServer){
-    var activities = this;
+        // Activates Tooltips for Social Links
+        $('.tooltip-social').tooltip({
+            selector: "a[data-toggle=tooltip]"
+        });
+    })
+    .controller('activitiesCtrl', function ($scope, fromServer, generalFactory) {
+        var activities = $scope,
+            season = generalFactory.getCurrentSeason(),
+            promise = fromServer.getActivities();
     
-    $scope.a
-    //fromServer.getjSon();
+        promise.then(function (payload) {
+                switch (season) {
+                case "Spring":
+                    $scope.activities = payload.data[season];
+                    break;
+                case "Summer":
+                    $scope.activities = payload.data[season];
+                    break;
+                case "Fall":
+                    $scope.activities = payload.data[season];
+                    break;
+                case "Winter":
+                    $scope.activities = payload.data[season];
+                    break;
+                }
+            });
+    });
+
+app.directive('activities', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'templates/activities.html',
+    };
 });
 
 app.factory('fromServer', function ($http) {
@@ -117,19 +115,26 @@ app.factory('fromServer', function ($http) {
         };
 
         service.getjSon = function () {
-            var promise = $http.get('../nowApp/js/test.json');
+            var promise = $http.get('js/test.json');
 
             promise.then(function (payload) {
                 console.log(payload.data.currently.apparentTemperature);
-                return payload.data.currently.temperature;                
+                return payload.data.currently.temperature;
             });
+        };
+
+        service.getActivities = function (season) {
+            return $http.get('js/weatherActivities.json');
+
+            //console.log(payload.data.currently.apparentTemperature);
+            //return payload.data.currently.temperature;
         };
         return service;
     })
-    .factory('generalFactory', function () {
+    .factory('generalFactory', function ($rootScope) {
         var service = {};
 
-        service.getCurrentSeason = function (returnThis) {
+        service.getCurrentSeason = function () {
             var today = new Date(),
                 dd = today.getDate(),
                 mm = today.getMonth() + 1, //January is 0!
@@ -146,19 +151,26 @@ app.factory('fromServer', function ($http) {
             function between(x, min, max) {
                 return x >= min && x <= max;
             }
+
+            var season;
             if (between(mm, 03, 06)) {
-                console.log("Spring");
+                season = "Spring";
+                console.log(1);
+                //return season;                
             } else if (between(mm, 06, 09)) {
-                console.log("Summer");
+                season = "Summer";
+                console.log(2);
+                //return season;
             } else if (between(mm, 09, 12)) {
-                console.log("Fall");
+                data = "Fall";
+                //console.log(3);
+                //console.log(season);
+                //return data;
             } else {
-                console.log("Winter");
+                season = "Winter";
+                console.log(4);
+                //return season;
             }
-        }
-
-        service.getActivities = function (season, currentWeather) {
-
         };
         return service;
     });
